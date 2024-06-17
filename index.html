@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Image Gallery</title>
+</head>
+
+<style>
+    img {
+        margin: 10px;
+        /* height: 100%; */
+    }
+
+    button {
+        border: none;
+        background-color: white;
+        padding: 5px;
+        width: 100px;
+        border-radius: 25px;
+    }
+
+    .toggle-btn.active {
+        background-color: rgb(39, 39, 213);
+        color: white;
+    }
+</style>
+
+
+<body>
+
+    <!-- Button To Filter Image -->
+    <div class="mt-4 container d-flex justify-content-center">
+
+        <button id="btn1" class="toggle-btn">All</button>
+        <button id="btn2" class="toggle-btn">Nurture</button>
+        <button id="btn3" class="toggle-btn">Pizza</button>
+        <button id="btn4" class="toggle-btn">Mountain</button>
+        <button id="btn5" class="toggle-btn">Animal</button>
+
+    </div>
+
+    <!-- Nurture image -->
+    <div class="d-flex mt-3 container">
+
+        <div class="card w-25" style="border: none;">
+
+            <img class="card-img-top" src="./Image/plant-that-is-growing-out-ground.jpg" alt="nurture">
+
+        </div>
+
+        <div class="card w-25" style="border: none;">
+
+            <img class="card-img-top" src="./Image/plant-with-leaves-sunlight.jpg" alt="nurture">
+
+        </div>
+
+        <div class="card w-25" style="border: none;">
+
+            <img class="card-img-top" src="./Image/hand-holds-tree-that-has-word-it_593294-18115.jpg"
+                alt="nurture">
+
+        </div>
+
+        <div class="card w-25" style="border: none;">
+
+            <img class="card-img-top" src="./Image/banana_1169218-2.jpg" alt="nurture">
+
+        </div>
+
+    </div>
+
+    <!-- Pizza Image -->
+    <div class="d-flex mt-3 container">
+
+        <div class="card w-25" style="border: none;">
+
+            <img class="card-img-top h-100" src="./Image/pizza-pizza-filled-with-tomatoes-salami-olives_140725-1200.jpg"
+                alt="pizza">
+
+        </div>
+
+        <div class="card w-25" style="border: none;">
+
+            <img class="card-img-top h-100" src="./Image/delicious-fresh-pepperoni-pizza-with-vegetables_135427-6388.avif" alt="pizza">
+
+        </div>
+
+        <div class="card w-25" style="border: none;">
+
+            <img class="card-img-top h-100" src="./Image/delicious-pizza-with-mushrooms_23-2148516992.jpg" alt="pizza">
+
+        </div>
+
+        <div class="card w-25" style="border: none;">
+
+            <img class="card-img-top h-100" src="./Image/crispy-mixed-pizza-with-olives-sausage.jpg"
+                alt="pizza">
+
+        </div>
+
+    </div>
+
+    <!-- Mountain Image -->
+    <div class="d-flex mt-3 container">
+
+        <div class="card w-25" style="border: none;">
+
+            <img class="card-img-top"
+                src="./Image/mountains-with-lone-horse-standing-rocky-mountain-top-generative-ai_561855-39201.jpg"
+                alt="mountain">
+
+        </div>
+
+        <div class="card w-25" style="border: none;">
+
+            <img class="card-img-top"
+                src="./Image/serenity-simplicity-minimalist-mountain-majesty_574745-9316.jpg" alt="mountain">
+
+        </div>
+
+        <div class="card w-25" style="border: none;">
+
+            <img class="card-img-top"
+                src="./Image/serenity-simplicity-minimalist-mountain-majesty_574745-9184.avif" alt="mountain">
+
+        </div>
+
+        <div class="card w-25" style="border: none;">
+
+            <img class="card-img-top" src="./Image/international-mountain-day_837074-19265.jpg" alt="mountain">
+
+        </div>
+
+    </div>
+
+    <!-- Animal Image -->
+    <div class="d-flex mt-3 container">
+
+        <div class="card w-25" style="border: none;">
+
+            <img class="card-img-top"
+                src="./Image/photo-south-africa-animal-endangered-rare-white-lion-generative-ai_742418-14892.jpg" alt="animal">
+
+        </div>
+
+        <div class="card w-25" style="border: none;">
+
+            <img class="card-img-top" src="./Image/white-lion-walking-wilderness-animal-kingdom-concept_585930-1658.jpg" alt="animal">
+
+        </div>
+
+        <div class="card w-25" style="border: none;">
+
+            <img class="card-img-top" src="./Image/tiger-zoo_1048944-17112142.jpg" alt="animal">
+
+        </div>
+
+        <div class="card w-25" style="border: none;">
+
+            <img class="card-img-top" src="./Image/sri-lankan-leopard-realistic-ultra-hd_1091514-217.jpg"
+                alt="animal">
+
+        </div>
+
+    </div>
+
+
+    <script src="jquery-3.7.1.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $('.toggle-btn:first-of-type').addClass('active');
+
+            $('.toggle-btn').click(function () {
+
+                let name1 = $(this).attr('name');
+
+                $('.toggle-btn').removeClass('active');
+
+                $(this).addClass('active');
+
+            });
+
+            $('#btn1').click(function () {
+
+                $('img').show();
+
+            });
+
+            $('#btn2').click(function () {
+
+                $('img').filter('img[alt*=nurture]').show();
+
+                $('img').filter('img[alt!=nurture]').hide();
+
+            });
+
+            $('#btn3').click(function () {
+
+                $('img').filter('img[alt*=pizza]').show();
+
+                $('img').filter('img[alt!=pizza]').hide();
+
+            });
+
+            $('#btn4').click(function () {
+
+                $('img').filter('img[alt*=mountain]').show();
+
+                $('img').filter('img[alt!=mountain]').hide();
+
+            });
+
+            $('#btn5').click(function () {
+
+                $('img').filter('img[alt*=animal]').show();
+
+                $('img').filter('img[alt!=animal]').hide();
+
+            });
+
+        });
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
